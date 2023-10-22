@@ -49,7 +49,7 @@ class GoogleOAuthAuthenticationSuccessHandler(
             val cookie = Cookie("jwtToken", token).apply {
                 maxAge = 3600
                 path = "/"
-                domain = ".railway.app"
+                domain = "vite-react-template-production.up.railway.app"
                 secure = false
             }
             response.addCookie(cookie)
