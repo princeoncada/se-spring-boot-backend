@@ -27,6 +27,8 @@ import org.springframework.web.filter.CorsFilter
 @Configuration
 @EnableWebSecurity
 class SecurityConfig(
+    @Value("\${domain}")
+    private val domain: String,
     @Value("\${frontend.url}")
     private val frontEndUrl: String,
     private val jwtService: JwtService,
@@ -77,6 +79,7 @@ class SecurityConfig(
     @Bean
     fun googleOAuthAuthenticationSuccessHandler(): GoogleOAuthAuthenticationSuccessHandler {
         return GoogleOAuthAuthenticationSuccessHandler(
+            domain,
             frontEndUrl,
             googleOAuthAuthenticationManager(googleOAuthAuthenticationProvider),
             customUserDetailsService,
