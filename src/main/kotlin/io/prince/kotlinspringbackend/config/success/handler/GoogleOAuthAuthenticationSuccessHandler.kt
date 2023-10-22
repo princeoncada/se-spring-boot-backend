@@ -49,9 +49,9 @@ class GoogleOAuthAuthenticationSuccessHandler(
             val cookie = Cookie("jwtToken", token).apply {
                 maxAge = 3600
                 path = "/"
-                domain = ".railway.app"
+                domain = frontEndUrl
             }
-//            response.addCookie(cookie)
+            response.addCookie(cookie)
             response.sendRedirect("${frontEndUrl}/authenticate")
         }
     }
