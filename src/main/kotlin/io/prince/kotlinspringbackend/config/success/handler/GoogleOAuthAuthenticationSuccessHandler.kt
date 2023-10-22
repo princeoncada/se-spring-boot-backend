@@ -51,7 +51,7 @@ class GoogleOAuthAuthenticationSuccessHandler(
                 path = "/"
                 domain = ".railway.app"
             }
-            response.addCookie(cookie)
+//            response.addCookie(cookie)
             response.sendRedirect("${frontEndUrl}/authenticate")
         }
     }
