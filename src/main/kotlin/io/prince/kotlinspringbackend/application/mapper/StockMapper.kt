@@ -42,24 +42,4 @@ class StockMapper {
             updatedAt = Instant.now()
         )
     }
-
-    fun updateEntity(
-        entity: Stock,
-        entityRequest: StockDTOs.PutRequest
-    ): Stock {
-        return Stock(
-            id = entity.id,
-            ticker = entity.ticker,
-            name = entityRequest.name,
-            stockData = entityRequest.stockData,
-            price = entityRequest.price,
-            growth = entityRequest.growth,
-            dividend = entityRequest.dividend,
-            value = entityRequest.value,
-            total = entityRequest.total,
-            expiry = LocalDateTime.parse(entityRequest.expiry),
-            createdAt = entity.createdAt,
-            updatedAt = Instant.now()
-        )
-    }
 }
