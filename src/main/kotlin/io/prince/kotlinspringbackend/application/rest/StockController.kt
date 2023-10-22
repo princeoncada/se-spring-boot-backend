@@ -5,7 +5,6 @@ import io.prince.kotlinspringbackend.domain.model.Stock
 import io.prince.kotlinspringbackend.domain.service.StockService
 import io.prince.kotlinspringbackend.domain.service.StockStatisticsService
 import org.springframework.http.ResponseEntity
-import org.springframework.scheduling.annotation.Async
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -28,10 +27,9 @@ class StockController(
 
     @GetMapping
     fun getStockByParams(
-        @RequestParam ticker: String
     ): ResponseEntity<Stock> {
         return try {
-            val stock = stockService.getStockByTicker(ticker)
+            val stock = stockService.getStockByTicker("GOOG")
             ResponseEntity.ok(stock)
         } catch (e: Exception) {
             ResponseEntity.notFound().build()
