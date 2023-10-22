@@ -49,7 +49,8 @@ class GoogleOAuthAuthenticationSuccessHandler(
             val cookie = Cookie("jwtToken", token).apply {
                 maxAge = 3600
                 path = "/"
-                domain = "vite-react-template-production.up.railway.app"
+                domain = ".railway.app"
+                secure = false
             }
             response.addCookie(cookie)
             response.sendRedirect("${frontEndUrl}/authenticate")
