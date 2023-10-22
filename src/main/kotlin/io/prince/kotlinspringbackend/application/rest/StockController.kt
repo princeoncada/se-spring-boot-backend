@@ -25,17 +25,6 @@ class StockController(
         }
     }
 
-    @GetMapping
-    fun getStockByParams(
-    ): ResponseEntity<Stock> {
-        return try {
-            val stock = stockService.getStockByTicker("GOOG")
-            ResponseEntity.ok(stock)
-        } catch (e: Exception) {
-            ResponseEntity.notFound().build()
-        }
-    }
-
     @GetMapping("/top")
     fun getTopStocks(): ResponseEntity<List<StockDTOs.GetResult>> {
         return try {
