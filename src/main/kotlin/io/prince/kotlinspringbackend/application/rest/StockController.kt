@@ -13,7 +13,7 @@ class StockController(
     private val stockService: StockService,
     private val stockStatisticsService: StockStatisticsService
 ) {
-    @GetMapping("/{ticker}")
+    @RequestMapping("/{ticker}")
     fun getStock(
         @PathVariable ticker: String
     ): ResponseEntity<Stock> {
