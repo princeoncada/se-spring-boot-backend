@@ -50,6 +50,8 @@ class GoogleOAuthAuthenticationSuccessHandler(
                 maxAge = 3600
                 path = "/"
                 domain = ".railway.app"
+                isHttpOnly = true
+                secure = true
             }
             response.addCookie(cookie)
             response.sendRedirect("${frontEndUrl}/authenticate")
