@@ -67,7 +67,7 @@ class SecurityConfig(
     fun corsFilter(): CorsFilter {
         val source = UrlBasedCorsConfigurationSource()
         val config = CorsConfiguration().applyPermitDefaultValues()
-        config.allowedOrigins = listOf(frontEndUrl)
+        config.allowedOrigins = listOf("*")
         config.allowedMethods = listOf("GET", "POST", "DELETE")
         config.allowedHeaders = listOf("Authorization", "Content-Type", "Accept")
         source.registerCorsConfiguration("/**", config)
