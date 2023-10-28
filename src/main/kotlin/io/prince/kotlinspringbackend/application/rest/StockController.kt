@@ -56,4 +56,16 @@ class StockController(
             ResponseEntity.notFound().build()
         }
     }
+
+    @GetMapping("/validate/{ticker}")
+    fun validateStock(
+        @PathVariable ticker: String
+    ): ResponseEntity<Boolean> {
+        return try {
+            val isValid = stockService.validateStock(ticker)
+            ResponseEntity.ok(isValid)
+        } catch (e: Exception) {
+            ResponseEntity.notFound().build()
+        }
+    }
 }

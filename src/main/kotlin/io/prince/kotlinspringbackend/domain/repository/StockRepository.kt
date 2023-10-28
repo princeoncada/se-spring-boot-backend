@@ -8,4 +8,5 @@ import java.util.*
 @Repository
 interface StockRepository: JpaRepository<Stock, String> {
     fun findByTicker(ticker: String): Optional<Stock>
+    fun existsByTicker(ticker: String): Boolean
 }

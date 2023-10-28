@@ -19,4 +19,10 @@ class FastApiServiceImpl(
         val responseType = String::class.java
         return restTemplate.getForEntity(url, responseType)
     }
+
+    override fun validateStock(ticker: String): ResponseEntity<Boolean> {
+        val url = "${dataUrl}/validate/$ticker"
+        val responseType = Boolean::class.java
+        return restTemplate.getForEntity(url, responseType)
+    }
 }
