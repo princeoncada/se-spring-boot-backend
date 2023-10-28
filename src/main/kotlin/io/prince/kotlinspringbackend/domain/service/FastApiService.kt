@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service
 @Service
 interface FastApiService {
     fun fetchStockData(ticker: String): ResponseEntity<String>
+    fun validateStock(ticker: String): ResponseEntity<Boolean>
 }

@@ -22,4 +22,12 @@ class FastApiController(
         val body = objectMapper.readValue(response.body, Map::class.java)
         return ResponseEntity.ok(body)
     }
+
+    @GetMapping("/validate/{ticker}")
+    fun validateStock(
+        @PathVariable ticker: String
+    ): ResponseEntity<Boolean> {
+        val response = fastApiService.validateStock(ticker)
+        return ResponseEntity.ok(response.body)
+    }
 }

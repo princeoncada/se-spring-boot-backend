@@ -161,4 +161,13 @@ class StockServiceImpl(
 
         return minMaxValuesMap
     }
+
+    override fun validateStock(ticker: String): Boolean {
+        val stockExists = stockRepository.existsByTicker(ticker)
+        return if (stockExists){
+            true
+        } else {
+            fastApiService.validateStock(ticker).body!!
+        }
+    }
 }
